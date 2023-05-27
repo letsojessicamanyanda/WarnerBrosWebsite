@@ -1,0 +1,482 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap');
+:root{
+    --main-color: #66afee;
+    --body-bg: #181616;
+    --box-bg: #221f1f;
+    --text-color: #fff;
+
+    --nav-height: 60px;
+    --space-top: 30px;
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--body-bg);
+    color: var(--text-color);
+    padding-top: var(--nav-height);
+    background: url(images/scifi/the\ suicide\ squad.jpg) no-repeat center center/cover;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    max-width: 1920px;
+    padding: 0 40px;
+    margin: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba( 0, 0, 0, 0.5);
+}
+
+.nav-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    background-color: #3a3636;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--text-color);
+    height: var(--nav-height);
+}
+
+.nav a {
+    color: var(--text-color);
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-menu li {
+    margin-left: 30px;
+}
+.nav-menu a {
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.nav-menu a:hover {
+    color: var(--main-color);
+}
+
+.nav-menu a.btn:hover {
+    color: unset;
+}
+#search {
+    margin: 5%;
+}
+
+.btn {
+    color: #fff;
+    padding: .25rem 1.5rem;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    font-weight: 300;
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+}
+
+.btn-hover::before {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 0%;
+    background-color: var(--main-color);
+    transition: .3s ease-in-out;
+}
+
+.btn-hover:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.btn span {
+    z-index: 1;
+}
+
+.hamburger-menu {
+    --size: 30px;
+    height: var(--size);
+    width: var(--size);
+    cursor: pointer;
+    z-index: 101;
+    position: relative;
+    display: none;
+    align-items: center;
+}
+
+.hamburger {
+    position: relative;
+}
+
+.hamburger, .hamburger::before, .hamburger::after {
+    width: var(--size);
+    height: 3px;
+    border-radius: .5rem;
+    background-color: var(--text-color);
+    transition: .4s;
+}
+
+.hamburger::before, .hamburger::after {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+.hamburger::before {
+    top: -10px;
+}
+
+.hamburger::after {
+    bottom: -10px;
+}
+
+.hamburger-menu.active .hamburger {
+    background-color: transparent;
+}
+
+.hamburger-menu.active .hamburger::before {
+    transform-origin: top left;
+    transform: rotate(45deg);
+    left: 6px;
+}
+
+.hamburger-menu.active .hamburger::after {
+    transform-origin: bottom left;
+    transform: rotate(-45deg);
+    left: 6px;
+}
+
+
+.hero-slide-item {
+    padding-top: 40%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slide-item img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hero-slide-item-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--text-color);
+    display: flex;
+}
+
+.item-content-wrapper {
+    padding-left: 5rem;
+    width: 40%;
+    background-color: rgba( 0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.item-content-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0 ,0, 0));
+}
+
+.item-content-title {
+    font-size: 5rem;
+    line-height: 5rem;
+    font-weight: 900;
+}
+
+.movie-infos {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: calc(var(--space-top) / 2);
+}
+
+.movie-info {
+    display: flex;
+    align-items: center;
+    font-size: -8rem;
+    font-weight: 600;
+}
+
+.movie-info span {
+    margin-left: 5px;
+}
+
+.movie-info i {
+    color: var(--main-color);
+}
+
+.movie-info ~ .movie-info {
+    margin-left: 5px;
+}
+
+.item-content-description {
+    font-size: 1.15rem;
+    margin-top: var(--space-top);
+    line-height: 1.5rem;
+}
+
+.item-action {
+    margin-top: var(--space-top);
+}
+
+.container-2 {
+    width: 90%;
+    height: auto;
+    /*border: 1px solid #fff;*/
+    display: flex;
+    flex-wrap: wrap;
+    /*margin: 10%;*/
+    align-items: center;
+}
+
+.boxes {
+    position: relative;
+    width: 180px;
+    height: 290px;
+    border: 1px solid #fff;
+    margin: 10px;
+    border-radius: 20px;
+    display: flex;
+}
+
+.boxes img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.boxes .movies-content {
+    position: absolute;
+    width: 100%;
+    height: 25%;
+    /*background: green;*/
+    bottom: 0;
+    border-radius: 0px 0px 20px 20px;
+    z-index: 1;
+}
+
+.boxes .movies-content::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba( 185, 185, 185, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 0px 0px 20px 20px;
+    z-index: -1;
+}
+
+.movies-content h3{
+    color: #fff;
+    padding: 5px 0px 0px 10px;
+    font-size: 17px;
+}
+
+.movies-content p{
+    color: #fff;
+    padding: 0px 0px 5px 10px;
+    font-size: 13px;
+}
+
+.movies-content h6{
+    color: #fff;
+    padding: 0px 0px 5px 10px;
+}
+
+.movies-content h6 span {
+    color: #000;
+    padding: 2px 5px;
+    background: yellow;
+    border-radius: 5px;
+}
+
+/*feedback*/
+#register {
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    margin: 27%;
+    justify-content: space-between;
+    line-height: 50px;
+    padding: 10px;
+    background-color: var(--body-bg);
+    overflow: hidden;
+    margin-top: 15%;
+}
+
+.details {
+    margin: 30%;
+    margin-top: -25%;
+    font-size: 20px;
+}
+
+.suicidesquad {
+    position: relative;
+    width: 200px;
+    height: 350px;
+    border: 1px solid #fff;
+    margin: 10px;
+    border-radius: 20px;
+    display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+footer {
+    margin-top: 150px;
+    width: 100%;
+    padding: 100px 15%;
+    background: #333;
+    color: #efefef;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer div {
+    text-align: center;
+    
+}
+
+.col-2 {
+    flex-grow: 2; 
+}
+
+footer div h3 {
+    font-weight: 300;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.col-1 a {
+    display: block;
+    text-decoration: none;
+    color: #efefef;
+    margin-bottom: 10px;
+}
+
+.col-3 a {
+    display: block;
+    text-decoration: none;
+    color: #efefef;
+    margin-bottom: 10px;
+    left: -60%;
+}
+
+form input {
+    width: 400px;
+    height: 45px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    outline: none;
+    border: none;
+}
+
+.col-4 a{
+    display: block;
+    text-decoration: none;
+    color: #efefef;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+/* RESPONSIVE */
+@media only screen and (max-width: 850px) {
+    html {
+        font-size: 12px;
+    }
+
+    .hamburger-menu {
+        display: grid;
+    }
+
+    .nav-menu {
+        /*display: none;*/
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        background-color: #000;
+        flex-direction: column;
+        width: 80%;
+        height: 100vh;
+        padding: 20px;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-menu li {
+        margin: 10px 30px;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+}
+
+
+
